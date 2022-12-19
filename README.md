@@ -1,6 +1,6 @@
 # Code Challenge
 
-## Overview 
+## Overview
 ### Documentation
 
 I have created the `runbooks` and `architecture` folders for this project.
@@ -30,7 +30,7 @@ This module is the current implementation of the contracts of this service.
 
 #### External
 
-This module contains the interfaces and implementation of external services. 
+This module contains the interfaces and implementation of external services.
 
 Ideally, we should have it implemented in a shared library so that many other services could also use.
 
@@ -65,7 +65,7 @@ Docker Compose will include LocalStack.
 Team and User services are external services. They have their own database.
 The master data of Users and Teams is not owned by this Roles service.
 
-I have added the client interface to be implemented further. 
+I have added the client interface to be implemented further.
 So first I started working with the concept of working with abstractions and not with concretions.
 This helped me to use Dependency Injection more easily.
 
@@ -116,3 +116,5 @@ Team service or User service should be using SNS and SQS. With SNS we send event
 With SQS the events are queued, and then a free instance of the service will pick it up and process that event as soon it gets in.
 
 Also, this project would be decoupled from the others if we just change the architecture this way. In case some change is made externally, we might create a processing task in this service to update the state of the data.
+
+If the business allows us, I think roles should be in the same domain as users and teams, so we should not be concerned in this case to have integration between these two services. Both would be using the same database so on the same quanta.
