@@ -97,6 +97,7 @@ I chose to left it over for future increments:
 - The properties management by different environments
 - An initial runbook file
 - Acceptance tests
+- Fix the terraform script and make it prod usable
 
 ### How to Run the Code
 
